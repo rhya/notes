@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #+TITLE: Index
 
    + [[file:orm-hibernate.org][Hibernate]]
@@ -6,3 +7,9 @@
    + [[file:howdoudo-pagination.org][分页(Pagination)]]
    + [[file:howdoudo-fileupload.org][文件上传]]
    + [[file:howdoudo-captcha.org][验证码]]
+=======
+#+TITLE: IMFINEANDU
+
+   + [[file:howdoudo-fileupload.org][文件上传]]
+   + [[file:howdoudo-captcha.org][验证码]]
+>>>>>>> fix some thing

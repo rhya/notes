@@ -33,6 +33,7 @@ Content-Type: image/png
 </pre>
 #+END_HTML
 
+
 * 服务端
 
 在 Servlet 3.0 以前, Servlet API 本身不支持 =multipart/form-data=,
@@ -233,7 +234,7 @@ Servlet 3.1 新增了 =Part#getSubmittedFileName()= 方法, 它用来得到文�
 
 效果图为:
 
-[[file:assets/image/howdoudo-fileupload/5233708_2017-07-06_00-21-36_2017-07-10_13-40-26.png]]
+[[file:res/images/howdoudo-fileupload/5233708_2017-07-06_00-21-36_2017-07-10_13-40-26.png]]
 
 
 
