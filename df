@@ -1,0 +1,149 @@
+[33mcommit 061a6c29e51211f2d3629c2c2827c9df55544d55[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: U-RHOST\lol <monster>
+Date:   Thu Oct 19 16:50:44 2017 +0800
+
+    struts2
+
+[1mdiff --git a/assets/base.css b/assets/base.css[m
+[1mindex 2b2e079..158a224 100644[m
+[1m--- a/assets/base.css[m
+[1m+++ b/assets/base.css[m
+[36m@@ -579,3 +579,7 @@[m [mp.verse {[m
+ .org-widget-field { /* widget-field */ background-color: #d9d9d9; }[m
+ .org-widget-inactive { /* widget-inactive */ color: #7f7f7f; }[m
+ .org-widget-single-line-field { /* widget-single-line-field */ background-color: #d9d9d9; }[m
+[32m+[m[32m.org-nxml-comment-delimiter, .org-nxml-comment-content { color: #999988; font-style: italic; }[m[41m[m
+[32m+[m[32m.org-nxml-element-local-name { color: teal; }[m[41m[m
+[32m+[m[32m.org-nxml-attribute-local-name { color: #228d22; }[m[41m[m
+[32m+[m[32m.org-nxml-namespace-attribute-value, .org-nxml-attribute-value { color: #dd1144; }[m[41m[m
+[1mdiff --git a/html/assets/base.css b/html/assets/base.css[m
+[1mindex 2b2e079..158a224 100644[m
+[1m--- a/html/assets/base.css[m
+[1m+++ b/html/assets/base.css[m
+[36m@@ -579,3 +579,7 @@[m [mp.verse {[m
+ .org-widget-field { /* widget-field */ background-color: #d9d9d9; }[m
+ .org-widget-inactive { /* widget-inactive */ color: #7f7f7f; }[m
+ .org-widget-single-line-field { /* widget-single-line-field */ background-color: #d9d9d9; }[m
+[32m+[m[32m.org-nxml-comment-delimiter, .org-nxml-comment-content { color: #999988; font-style: italic; }[m[41m[m
+[32m+[m[32m.org-nxml-element-local-name { color: teal; }[m[41m[m
+[32m+[m[32m.org-nxml-attribute-local-name { color: #228d22; }[m[41m[m
+[32m+[m[32m.org-nxml-namespace-attribute-value, .org-nxml-attribute-value { color: #dd1144; }[m[41m[m
+[1mdiff --git a/html/index.html b/html/index.html[m
+[1mindex 0954535..081c7f6 100644[m
+[1m--- a/html/index.html[m
+[1m+++ b/html/index.html[m
+[36m@@ -2,7 +2,7 @@[m
+ <html>[m
+ <head>[m
+ <title>Index</title>[m
+[31m-<!-- 2017-10-16 Mon 16:22 -->[m
+[32m+[m[32m<!-- 2017-10-20 Fri 11:14 -->[m[41m[m
+ <meta  charset="utf-8">[m
+ <meta  name="generator" content="Org-mode">[m
+ <meta  name="author" content="imfine">[m
+[36m@@ -24,6 +24,8 @@[m
+ </li>[m
+ <li><a href="database-oracle.html">Oracle 数据库</a>[m
+ </li>[m
+[32m+[m[32m<li><a href="mvc-struts.html">Struts2</a>[m[41m[m
+[32m+[m[32m</li>[m[41m[m
+ <li><a href="howdoudo-pagination.html">分页(Pagination)</a>[m
+ </li>[m
+ <li><a href="howdoudo-fileupload.html">文件上传</a>[m
+[36m@@ -34,7 +36,7 @@[m
+ </div>[m
+ <div id="postamble" class="status">[m
+ <p class="author">Author: imfine</p>[m
+[31m-<p class="date">Created: 2017-10-16 Mon 16:22</p>[m
+[32m+[m[32m<p class="date">Created: 2017-10-20 Fri 11:14</p>[m[41m[m
+ <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>[m
+ <p class="validation">Go ahead, never stop.</p>[m
+ </div>[m
+[1mdiff --git a/html/mvc-struts.html b/html/mvc-struts.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d11c6fa[m
+[1m--- /dev/null[m
+[1m+++ b/html/mvc-struts.html[m
+[36m@@ -0,0 +1,166 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m<head>[m
+[32m+[m[32m<title>Struts2</title>[m
+[32m+[m[32m<!-- 2017-10-20 Fri 11:11 -->[m
+[32m+[m[32m<meta  charset="utf-8">[m
+[32m+[m[32m<meta  name="generator" content="Org-mode">[m
+[32m+[m[32m<meta  name="author" content="imfine">[m
+[32m+[m[32m<meta  name="viewport" content="width=device-width,initial-scale=1">[m
+[32m+[m[32m<link rel="stylesheet" href="assets/base.css">[m
+[32m+[m[32m<script src="assets/base.js"></script>[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m[32m<div id="org-div-home-and-up">[m
+[32m+[m[32m <a accesskey="h" href="index.html"> UP </a>[m
+[32m+[m[32m |[m
+[32m+[m[32m <a accesskey="H" href="index.html"> HOME </a>[m
+[32m+[m[32m</div><div id="content">[m
+[32m+[m[32m<h1 class="title">Struts2</h1>[m
+[32m+[m[32m<nav id="table-of-contents">[m
+[32m+[m[32m<h2>Table of Contents</h2>[m
+[32m+[m[32m<div id="text-table-of-contents">[m
+[32m+[m[32m<ul>[m
+[32m+[m[32m<li><a href="#sec-1">1. 序</a></li>[m
+[32m+[m[32m</ul>[m
+[32m+[m[32m</div>[m
+[32m+[m[32m</nav>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<section id="outline-container-sec-1" class="outline-2">[m
+[32m+[m[32m<h2 id="sec-1"><span class="section-number-2">1</span> 序</h2>[m
+[32m+[m[32m<div class="outline-text-2" id="text-1">[m
+[32m+[m[32m<p>[m
+[32m+[m[32m步骤：[m
+[32m+[m[32m</p>[m
+[32m+[m[32m<ol class="org-ol">[m
+[32m+[m[32m<li>创建 Gradle 项目[m
+[32m+[m[32m</li>[m
+[32m+[m[32m<li>增加 jar 包支持：[m
+[32m+[m[32m<pre class="example">[m
+[32m+[m[32morg.apache.struts:struts2-core:2.5.11[m
+[32m+[m[32m</pre>[m
+[32m+[m[32m</li>[m
+[32m+[m[32m<li>配置 web.xml，让struts 拦截并处理所有来自客户端的请求[m
+[32m+[m[32m<div class="org-src-container">[m
+[32m+[m
+[32m+[m[32m<pre class="src src-xml"><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">filter</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">filter-name</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">abc</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">filter-name</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">filter-class</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">filter-class</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">filter</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">filter-mapping</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">filter-name</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">abc</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">filter-name</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">url-pattern</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">/*</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">url-pattern</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">filter-mapping</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m</pre>[m
+[32m+[m[32m</div>[m
+[32m+[m[32m</li>[m
+[32m+[m[32m<li>classpath 下添加 struts.xml 文件，定义变量，定义包，定义 Action[m
+[32m+[m[32m<div class="org-src-container">[m
+[32m+[m
+[32m+[m[32m<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-attribute-local-name">version</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">1.0</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-attribute-local-name">encoding</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">UTF-8</span><span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>[m
+[32m+[m[32m<span class="org-nxml-markup-declaration-delimiter">&lt;!</span><span class="org-nxml-prolog-keyword">DOCTYPE</span> struts <span class="org-nxml-prolog-keyword"><span class="org-nxml-prolog-keyword">PUBLIC</span></span> <span class="org-nxml-prolog-literal-delimiter">"</span><span class="org-nxml-prolog-literal-content">-//Apache Software Foundation//DTD Struts Configuration 2.5//EN</span><span class="org-nxml-prolog-literal-delimiter">"</span> <span class="org-nxml-prolog-literal-delimiter">"</span><span class="org-nxml-prolog-literal-content">http://struts.apache.org/dtds/struts-2.5.dtd</span><span class="org-nxml-prolog-literal-delimiter">"</span><span class="org-nxml-markup-declaration-delimiter">&gt;</span>[m
+[32m+[m[32m<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">struts</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m    <span class="org-nxml-comment-delimiter">&lt;!--</span><span class="org-nxml-comment-content"> &#24320;&#21551;&#24320;&#21457;&#27169;&#24335;&#65292;&#36825;&#26679;&#21487;&#20197;&#22312; jsp &#20013;&#20351;&#29992; s:debug &#26597;&#30475;&#21464;&#37327; </span><span class="org-nxml-comment-delimiter">--&gt;</span>[m
+[32m+[m[32m    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">constant</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">struts.devMode</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">true</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-tag-slash">/</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m    <span class="org-nxml-comment-delimiter">&lt;!--</span><span class="org-nxml-comment-content">&#40664;&#35748;&#30340;&#25193;&#23637;&#21517;&#20026; .action&#65292;&#20294;&#26159;&#25105;&#20204;&#21487;&#20197;&#23450;&#21046;&#23427;</span><span class="org-nxml-comment-delimiter">--&gt;</span>[m
+[32m+[m[32m    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">constant</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">struts.action.extension</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">html</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-tag-slash">/</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m
+[32m+[m[32m    <span class="org-nxml-comment-delimiter">&lt;!--</span><span class="org-nxml-comment-content"> &#29992; package &#26469;&#21010;&#20998;&#21508;&#20010;&#27169;&#22359;&#65292;&#20027;&#35201;&#29992;&#26469;&#26041;&#20415;&#32500;&#25252;&#31649;&#29702; </span><span class="org-nxml-comment-delimiter">--&gt;</span>[m
+[32m+[m[32m    <span class="org-nxml-comment-delimiter">&lt;!--</span><span class="org-nxml-comment-content"> &#38656;&#35201;&#32487;&#25215;&#40664;&#35748;&#30340; struts-default, &#36825;&#26159; struts &#20869;&#32622;&#23450;&#20041;&#30340;&#19968;&#20010; package, &#37324;&#38754;&#39044;&#20808;&#23450;&#20041;&#20102;&#24456;&#22810;&#19996;&#35199; </span><span class="org-nxml-comment-delimiter">--&gt;</span>[m
+[32m+[m[32m    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">package</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">default</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-attribute-local-name">namespace</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">/</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-attribute-local-name">extends</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">struts-default</span><span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m        <span class="org-nxml-comment-delimiter">&lt;!--</span>[m
+[32m+[m[32m<span class="org-nxml-comment-content">          url: /emplist</span>[m
+[32m+[m[32m<span class="org-nxml-comment-content">          &#30001;&#21738;&#20010;&#31867; &#30340;&#21738;&#20010;&#26041;&#27861; &#21435;&#22788;&#29702;&#65292;</span>[m
+[32m+[m[32m<span class="org-nxml-comment-content">          &#22914;&#26524;&#35831;&#27714;&#25104;&#21151;&#65292;&#24212;&#35813;&#30001;&#21738;&#20010;JSP&#21435;&#28210;&#26579;&#39029;&#38754;</span>[m
+[32m+[m[32m<span class="org-nxml-comment-content">              &#22914;&#26524; result &#19981;&#24102; name&#65292;&#40664;&#35748;&#25351;&#30340;&#26159; success</span>[m
+[32m+[m[32m<span class="org-nxml-comment-content">              &#22914;&#26524;&#35831;&#27714;&#20013;&#26377;&#39564;&#35777;&#38169;&#35823;&#65292;&#40664;&#35748;&#36820;&#22238;&#21517;&#23383;&#20026; input &#30340; result</span>[m
+[32m+[m[32m<span class="org-nxml-comment-content">        </span><span class="org-nxml-comment-delimiter">--&gt;</span>[m
+[32m+[m[32m        <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">action</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">emplist</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-attribute-local-name">class</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">com.nf.empst.action.EmpAction</span><span class="org-nxml-attribute-value-delimiter">"</span> <span class="org-nxml-attribute-local-name">method</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">emplist</span><span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m            <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">result</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">/view/emplist.jsp</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">result</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m            <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">result</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-attribute-value">input</span><span class="org-nxml-attribute-value-delimiter">"</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">/view/emplist.jsp</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">result</span><span class="org-nxml-tag-delimiter">&gt;</span>[m
+[32m+[m[32m        <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">ac
